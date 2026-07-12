@@ -4,9 +4,15 @@ target/
 # TestNG Reports
 test-output/
 
+# Extent Reports
+report/
+
 # Logs
 logs/
 *.log
+
+# Screenshots
+screenshots/
 
 # Eclipse
 .settings/
@@ -23,8 +29,3 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
-
-screenshots/
-logs/
-test-output/
-target/
