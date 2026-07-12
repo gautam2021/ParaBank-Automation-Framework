@@ -17,7 +17,8 @@ import utility.LoggerUtil;
 
 public final class BrowserFactory {
 
-    private final static Logger logger=LoggerUtil.getLogger(BrowserFactory.class);
+    private final static Logger logger = LoggerUtil.getLogger(BrowserFactory.class);
+
     private BrowserFactory() {
 	// Prevent instantiation
     }
@@ -35,6 +36,18 @@ public final class BrowserFactory {
 	    ChromeOptions chromeOptions = new ChromeOptions();
 	    chromeOptions.setExperimentalOption("prefs", getChromePreferences());
 	    chromeOptions.addArguments("--disable-save-password-bubble");
+
+	    boolean isCI = System.getenv("CI") != null;
+
+	    if (isCI) {
+
+		logger.info("Running in GitHub Actions - Launching Headless Chrome");
+
+		chromeOptions.addArguments("--headless=new");
+		chromeOptions.addArguments("--no-sandbox");
+		chromeOptions.addArguments("--disable-dev-shm-usage");
+		chromeOptions.addArguments("--window-size=1920,1080");
+	    }
 
 	    driver = new ChromeDriver(chromeOptions);
 	    break;
@@ -60,7 +73,7 @@ public final class BrowserFactory {
 	    break;
 
 	default:
-	    logger.error("Unsupported Browser: "+browserName);
+	    logger.error("Unsupported Browser: " + browserName);
 	    throw new IllegalArgumentException("Unsupported Browser: " + browserName);
 	}
 
