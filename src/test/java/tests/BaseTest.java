@@ -22,9 +22,7 @@ public class BaseTest {
     @BeforeMethod
     public void setup(Method method) {
 
-	logger.info("========================================================");
-	logger.info("STARTING TEST : {}.{}", method.getDeclaringClass().getSimpleName(), method.getName());
-	logger.info("========================================================");
+	logger.info("Launching {} Browser", ConfigReader.getProperty("browser"));
 
 	// setup
 	DriverManager.setDriver(BrowserFactory.getBrowser(ConfigReader.getProperty("browser")));
@@ -42,9 +40,5 @@ public class BaseTest {
 	WaitManager.removeWait();
 	DriverManager.quitDriver();
 	DataUtil.clearCustomer();
-
-	logger.info("ENDING TEST : {}.{}", result.getTestClass().getRealClass().getSimpleName(),
-		result.getMethod().getMethodName());
-	logger.info("========================================================");
     }
 }

@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
 
 	// Step 4 - Verify
 	Assert.assertTrue(accountOverviewPage.isAccountOverviewDisplayed(),
-		"Account Overview page should be displayed.");
+		"Account Overview page should be displayed");
 
     }
 
@@ -37,10 +37,10 @@ public class LoginTest extends BaseTest {
     public void inValidLogin(String userName, String password, String errorMessage) {
 	LoginPage loginPage = new LoginPage();
 	loginPage.loginAsInvalidUser(userName, password);
-	
+
 	// verify error Message for invalid login
 	Assert.assertTrue(loginPage.getErrorMessage().contains("Error!"));
-	
+
     }
 
 }
