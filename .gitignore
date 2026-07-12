@@ -23,3 +23,8 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+
+screenshots/
+logs/
+test-output/
+target/
