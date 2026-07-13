@@ -45,12 +45,24 @@ pipeline {
 
         always {
 
+            echo 'Publishing Test Results...'
+
+            junit 'target/surefire-reports/*.xml'
+
             archiveArtifacts artifacts: 'report/**', allowEmptyArchive: true
 
             archiveArtifacts artifacts: 'screenshots/**', allowEmptyArchive: true
 
             archiveArtifacts artifacts: 'logs/**', allowEmptyArchive: true
 
+        }
+
+        success {
+            echo 'Build completed successfully.'
+        }
+
+        failure {
+            echo 'Build failed.'
         }
     }
 }
