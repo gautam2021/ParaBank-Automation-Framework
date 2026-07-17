@@ -1,17 +1,42 @@
 # 🚀 ParaBank Automation Framework
 
+> A robust Selenium UI Automation Framework built using Java, Selenium WebDriver, TestNG, and Maven following the Page Object Model (POM) design pattern.
+
 <!-- Replace the badge below with your own GitHub Actions badge -->
-<!-- [![Selenium Test Automation](https://github.com/gautam2021/ParaBank-Automation-Framework/actions/workflows/selenium.yml/badge.svg)](https://github.com/gautam2021/ParaBank-Automation-Framework/actions/workflows/selenium.yml) -->
-
-## 📖 Overview
-
-This project is a robust Selenium Test Automation Framework developed using **Java**, **Selenium WebDriver**, **TestNG**, and **Maven**. The framework follows the **Page Object Model (POM)** design pattern and is built with scalability, maintainability, and CI/CD integration in mind.
-
-The framework supports parallel execution, centralized logging, automatic screenshot capture on failures, Extent Reports, and GitHub Actions for Continuous Integration.
+<!-- [![Selenium Test Automation](https://github.com/<your-github-username>/<repo-name>/actions/workflows/selenium.yml/badge.svg)](https://github.com/<your-github-username>/<repo-name>/actions/workflows/selenium.yml) -->
 
 ---
 
-## 🛠️ Tech Stack
+## 📖 Overview
+
+This project is an end-to-end UI automation framework developed for the **ParaBank Demo Banking Application**.
+
+The framework is designed with scalability, maintainability, and reusability in mind by implementing industry-standard automation practices such as:
+
+- Page Object Model (POM)
+- Thread-safe WebDriver management
+- TestNG Listeners
+- Extent Reporting
+- Log4j2 Logging
+- GitHub Actions CI/CD
+- Parallel Test Execution
+
+---
+
+# 🏦 Automated Banking Features
+
+The following banking workflows have been automated:
+
+- ✅ User Registration
+- ✅ User Login
+- ✅ Account Overview
+- ✅ Open Savings Account
+- ✅ Open Checking Account
+- ✅ Transfer Funds Between Accounts
+
+---
+
+# 🛠️ Tech Stack
 
 - Java 17
 - Selenium WebDriver 4
@@ -19,32 +44,65 @@ The framework supports parallel execution, centralized logging, automatic screen
 - Maven
 - Log4j2
 - Extent Reports
+- WebDriverManager
 - Git
 - GitHub
 - GitHub Actions
-- WebDriverManager
 
 ---
 
-## ✨ Features
+# ✨ Framework Features
 
 - ✅ Page Object Model (POM)
 - ✅ ThreadLocal WebDriver Management
 - ✅ Browser Factory Design Pattern
 - ✅ Parallel Test Execution
 - ✅ TestNG DataProvider Support
-- ✅ Centralized Logging using Log4j2
+- ✅ Explicit Wait Utilities
 - ✅ TestNG Listeners
-- ✅ Automatic Screenshot Capture on Test Failure
-- ✅ Extent Report Generation
-- ✅ Headless Chrome Execution for CI
+- ✅ Automatic Screenshot Capture on Failure
+- ✅ Extent HTML Reports
+- ✅ Centralized Log4j2 Logging
+- ✅ Headless Chrome Execution
 - ✅ GitHub Actions CI/CD Integration
 - ✅ Maven Dependency Caching
-- ✅ Upload Test Reports as GitHub Artifacts
+- ✅ Upload Reports as GitHub Artifacts
 
 ---
 
-## 📂 Project Structure
+# 📐 Design Patterns Used
+
+- Page Object Model (POM)
+- Factory Pattern
+- Singleton Pattern (Configuration Reader)
+- ThreadLocal WebDriver Pattern
+
+---
+
+# 🏗️ Framework Architecture
+
+```
+Tests
+   │
+   ▼
+Page Objects
+   │
+   ▼
+Base Page
+   │
+   ▼
+Utility Classes
+   │
+   ▼
+Driver Manager
+   │
+   ▼
+WebDriver
+```
+
+---
+
+# 📂 Project Structure
 
 ```
 ParaBank-Automation
@@ -58,13 +116,12 @@ ParaBank-Automation
 │   └── log4j2.xml
 │
 ├── report
-│
 ├── screenshots
-│
 ├── logs
 │
 ├── src
 │   ├── main
+│   │   ├── base
 │   │   ├── factory
 │   │   ├── listeners
 │   │   ├── pages
@@ -80,29 +137,67 @@ ParaBank-Automation
 
 ---
 
-## ▶️ Running the Tests
+# 📌 Test Modules
 
-### Clone the Repository
+| Module | Status |
+|---------|:------:|
+| User Registration | ✅ |
+| Login | ✅ |
+| Account Overview | ✅ |
+| Open Account | ✅ |
+| Transfer Funds | ✅ |
 
-```bash
-git clone https://github.com/gautam2021/ParaBank-Automation-Framework.git
+---
+
+# ⚙️ Configuration
+
+Update the configuration in:
+
+```
+resources/config.properties
 ```
 
-### Navigate to the Project
+Example:
 
-```bash
-cd ParaBank-Automation-Framework
+```properties
+browser=chrome
+baseUrl=https://parabank.parasoft.com/parabank
+implicitWait=10
+explicitWait=20
+headless=false
 ```
 
-### Run the Tests
+---
+
+# ▶️ Running the Tests
+
+### Clone Repository
+
+```bash
+git clone https://github.com/<your-github-username>/ParaBank-Automation.git
+```
+
+### Navigate
+
+```bash
+cd ParaBank-Automation
+```
+
+### Execute
 
 ```bash
 mvn clean test
 ```
 
+Or execute:
+
+```
+testng.xml
+```
+
 ---
 
-## 📊 Reports
+# 📊 Reports
 
 After execution, the framework automatically generates:
 
@@ -120,7 +215,7 @@ logs/
     ParaBank.log
 ```
 
-### Screenshots (On Failure)
+### Screenshots
 
 ```
 screenshots/
@@ -128,11 +223,11 @@ screenshots/
 
 ---
 
-## ⚙️ GitHub Actions CI
+# ⚙️ GitHub Actions CI
 
-This project is integrated with **GitHub Actions**.
+The project is integrated with GitHub Actions.
 
-Every push to the configured branches automatically:
+On every push, the pipeline:
 
 - Checks out the repository
 - Sets up Java 17
@@ -141,11 +236,11 @@ Every push to the configured branches automatically:
 - Executes Selenium Tests
 - Runs Chrome in Headless Mode
 - Generates Extent Reports
-- Uploads Reports, Logs and Screenshots as Artifacts
+- Uploads Reports, Logs, and Screenshots as Artifacts
 
 ---
 
-## 🌐 Supported Browser
+# 🌐 Supported Browser
 
 - Google Chrome
 
@@ -153,42 +248,64 @@ Every push to the configured branches automatically:
 
 ---
 
-## 📸 Framework Highlights
+# 💡 Skills Demonstrated
 
-- Thread-safe WebDriver implementation
-- Reusable Page Object Model
-- Clean utility classes
-- Centralized browser management
-- Centralized logging
-- Automatic screenshot capture
-- Professional HTML reporting
-- CI/CD Ready
+- Selenium WebDriver
+- Java
+- TestNG
+- Maven
+- Page Object Model
+- Explicit Waits
+- Parallel Execution
+- Git
+- GitHub
+- GitHub Actions
+- CI/CD
+- Log4j2
+- Extent Reports
+- Test Automation Framework Design
 
 ---
 
-## 🚀 Future Enhancements
+# 🚀 Future Enhancements
 
-- Jenkins Pipeline
-- Docker Support
+- Bill Pay Automation
+- Request Loan Automation
+- Find Transactions Automation
+- Cross Browser Execution
 - Selenium Grid
-- Cross Browser Matrix Execution
+- Docker Support
+- API Automation using Rest Assured
 - Allure Reports
-- Email Notifications
-- Slack Notifications
-- Azure DevOps Pipeline
-- API Automation Integration
-- Performance Testing Integration
 
 ---
 
-## 👨‍💻 Author
+# 📦 Current Version
+
+**v1.0.0**
+
+Includes:
+
+- Registration
+- Login
+- Open Account
+- Transfer Funds
+- Reporting
+- Logging
+- GitHub Actions
+
+---
+
+# 👨‍💻 Author
 
 **Gautam**
+
+Automation Test Engineer | Java | Selenium | TestNG | CI/CD
 
 GitHub: https://github.com/gautam2021
 
 ---
 
-## ⭐ If you like this project
+# ⭐ Support
 
-If you found this framework useful, consider giving the repository a ⭐ on GitHub.
+If you found this project useful, consider giving the repository a ⭐ on GitHub.
