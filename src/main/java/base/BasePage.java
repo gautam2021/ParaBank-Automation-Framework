@@ -1,13 +1,13 @@
 package base;
 
-
-
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import factory.DriverManager;
+import factory.WaitManager;
 import utility.WaitUtil;
 
 public abstract class BasePage {
@@ -37,6 +37,11 @@ public abstract class BasePage {
     protected void clear(By locator) {
 
 	WaitUtil.waitForVisibility(locator).clear();
+    }
+
+    protected WebElement getWebElement(By locator) {
+	WaitManager.getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+	return DriverManager.getDriver().findElement(locator);
     }
 
 }
